@@ -1,0 +1,207 @@
+/* --- Palet Warna --- */
+:root {
+    --background-color: #d9f6ea;
+    --card-background: #FFFFFF;
+    --border-color: #E5E7EB;
+    --text-color: #000000;
+    --text-light: #1f232a;
+    --primary-color: #2563EB;
+    --green-color: #10B981;
+    --red-color: #EF4444;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.07);
+}
+
+/* --- Pengaturan Dasar & Tipografi --- */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    line-height: 1.6;
+    
+    
+    background-image: radial-gradient(
+        circle at 50% 0, 
+        rgba(16, 185, 129, 0.30),
+        transparent 40%         
+    );
+    background-repeat: no-repeat;
+}
+header {
+    background-color: var(--card-background);
+    padding: 24px 40px;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+}
+header h1 { 
+    margin: 0; 
+    font-size: 1.90em;
+    font-weight: 800;
+}
+header p { 
+    margin: 4px 0 0; 
+    font-size: 1em; 
+    color: var(--text-light); 
+    font-weight: 400;
+}
+
+/* --- Insight Box --- */
+.insight-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    padding: 24px 40px;
+}
+.insight-box {
+    background-color: var(--card-background);
+    border-radius: 12px;
+    box-shadow: var(--shadow-md); 
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.insight-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+.insight-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+.insight-icon.icon-green { background-color: #E7F8F3; color: var(--green-color); }
+.insight-icon.icon-blue { background-color: #E9EFFD; color: var(--primary-color); }
+.insight-icon.icon-gray { background-color: #F3F4F6; color: var(--text-light); }
+
+.insight-title {
+    font-size: 0.8em; 
+    font-weight: 600; 
+    color: var(--text-light);
+    display: block;
+    text-transform: uppercase; 
+    letter-spacing: 0.5px; 
+}
+.insight-value {
+    font-size: 2em;
+    font-weight: 700;
+    color: var(--text-color); 
+    line-height: 1.2;
+    margin-top: 8px;
+}
+.insight-narrative {
+    font-size: 0.9em;
+    color: var(--text-light);
+    display: block;
+    margin-top: 8px;
+}
+.insight-box.icon-green .insight-value { color: var(--green-color); }
+.insight-box.icon-blue .insight-value { color: var(--primary-color); }
+.insight-box.icon-gray .insight-value { color: var(--text-color); }
+
+
+/* --- KPI Container --- */
+.kpi-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    padding: 0 40px 24px 40px;
+}
+.kpi-box {
+    background-color: var(--card-background);
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.kpi-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+.kpi-content { }
+.kpi-icon {
+    color: var(--text-light);
+    opacity: 0.7;
+    flex-shrink: 0; 
+}
+.kpi-title { 
+    font-size: 0.9em; 
+    color: var(--text-light); 
+    font-weight: 500; 
+    display: block; 
+}
+.kpi-value { 
+    font-size: 1.8em;
+    font-weight: 700; 
+    color: var(--text-color); 
+    line-height: 1.2;
+    margin-top: 8px;
+    white-space: nowrap; 
+}
+
+/* --- Layout Grid --- */
+.dashboard-grid {
+    display: grid;
+    grid-template-areas:
+        "tren tren"
+        "kategori metode"
+        "produk produk";
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding: 0 40px 40px 40px;
+}
+#tren { grid-area: tren; }
+#kategori { grid-area: kategori; }
+#metode { grid-area: metode; }
+#produk { grid-area: produk; }
+
+/* --- Styling Kotak Grafik --- */
+.chart-box {
+    background-color: var(--card-background);
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    padding: 24px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.chart-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+.chart-box h2 {
+    font-size: 1.25em;
+    font-weight: 700;
+    margin: 0 0 16px 0;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-color);
+    text-align: center
+}
+.chart-placeholder {
+    width: 100%;
+    min-height: 400px;
+}
+.chart-details {
+    font-size: 0.85em;
+    color: var(--text-light);
+    margin-top: 16px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 12px;
+}
+
+/* --- Responsivitas --- */
+@media (max-width: 1024px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas: "tren" "kategori" "metode" "produk";
+    }
+    .insight-container, .kpi-container, .dashboard-grid { padding: 20px; }
+}
